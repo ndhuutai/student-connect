@@ -1,0 +1,14 @@
+.Container {
+  display: flex;
+  width: 100%;
+}
+
+.Form {
+  display: flex;
+  width: 100%;
+}
+
+.InputBox {
+  width: 70%;
+  flex-grow: 2;
+}
