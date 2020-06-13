@@ -54,13 +54,13 @@ export const App: React.FC<{}> = () => {
               }}
             >
               {isLoggedin ? (
-                <div>
+                <>
                   {hasJoinedRoom ? (
                     <MessageArea />
                   ) : (
                     <SelectDepartment onJoin={() => setHasJoinedRoom(true)} />
                   )}
-                </div>
+                </>
               ) : (
                 <Login onLogInSucess={() => SetIsLoggedIn(true)} />
               )}

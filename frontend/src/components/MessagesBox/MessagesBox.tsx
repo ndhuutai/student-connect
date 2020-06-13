@@ -24,7 +24,6 @@ export const MessagesBox: React.FC<{}> = memo((props) => {
     createStyles({
       root: {
         width: '100%',
-        heigh: '100vh',
       },
     })
   );

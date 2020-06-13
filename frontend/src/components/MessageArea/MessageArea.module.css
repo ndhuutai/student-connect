@@ -1,0 +1,15 @@
+.Container {
+  height: 100%;
+  width: 100%;
+}
+
+.Top {
+  height: 95vh;
+  overflow: scroll;
+}
+
+.Bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

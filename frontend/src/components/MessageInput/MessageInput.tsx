@@ -65,7 +65,7 @@ export const MessageInput: React.FC<IMessageInput> = (props) => {
 
   //TODO: Fix the style of this enclosing div
   return (
-    <div>
+    <>
       <form onSubmit={onSubmitHandler} className={classes.Form}>
         <TextField
           onChange={onChangeHandler}
@@ -82,6 +82,6 @@ export const MessageInput: React.FC<IMessageInput> = (props) => {
           Send
         </Button>
       </form>
-    </div>
+    </>
   );
 };

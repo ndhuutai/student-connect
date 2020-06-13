@@ -5,6 +5,7 @@ import {
   Badge,
   Avatar,
   Theme,
+  makeStyles,
 } from '@material-ui/core';
 const StyledBadge = withStyles((theme: Theme) =>
   createStyles({
@@ -48,12 +49,18 @@ const StyledAvatar = withStyles((theme: Theme) => {
   });
 })(Avatar);
 
+const useStyles = makeStyles((theme: Theme) => {
+  return createStyles({});
+});
+
 interface UserDisplayProps {
   name: string;
   avatarSrc?: string;
 }
 
 export const UserDisplay: React.FC<UserDisplayProps> = (props) => {
+  const styles = useStyles();
+
   return (
     <div>
       <StyledBadge
