@@ -1,8 +1,6 @@
 import React, { useReducer, useEffect, useState } from 'react';
 import { CssBaseline } from '@material-ui/core';
 import { Layout } from './components/Layout/Layout';
-import { MessageInput } from './components/MessageInput/MessageInput';
-import { MessagesBox } from './components/MessagesBox/MessagesBox';
 import {
   ConversationStateContext,
   DispatchConversationContext,
@@ -19,6 +17,7 @@ import connectionReducer, {
 import io from 'socket.io-client';
 import { SelectDepartment } from './components/SelectDepartment/SelectDepartment';
 import { Login } from './components/Login/Login';
+import { MessageArea } from './components/MessageArea/MessageArea';
 
 export const App: React.FC<{}> = () => {
   const [isLoggedin, SetIsLoggedIn] = useState(false);
@@ -57,15 +56,9 @@ export const App: React.FC<{}> = () => {
               {isLoggedin ? (
                 <div>
                   {hasJoinedRoom ? (
-                    ''
+                    <MessageArea />
                   ) : (
                     <SelectDepartment onJoin={() => setHasJoinedRoom(true)} />
-                  )}
-                  {hasJoinedRoom && (
-                    <>
-                      <MessagesBox />
-                      <MessageInput onSubmit={(val) => console.log(val)} />
-                    </>
                   )}
                 </div>
               ) : (
