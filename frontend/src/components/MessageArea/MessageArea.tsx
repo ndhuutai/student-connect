@@ -10,7 +10,7 @@ export const MessageArea: React.FC<{}> = (props) => {
   return (
     <div className={styles.Container}>
       <div className={styles.Top}>
-        <UserDisplay name="User" />
+        <UserDisplay name="User"/>
         <MessagesBox />
       </div>
       <div className={styles.Bottom}>

@@ -89,6 +89,7 @@ export const Login: React.FC<Props> = (props) => {
             className={classes.textField}
           />
           <TextField
+            type='password'
             label={'Password'}
             onChange={handlePasswordChange}
             className={classes.textField}

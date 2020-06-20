@@ -7,6 +7,7 @@ import {
   Theme,
   makeStyles,
 } from '@material-ui/core';
+import Indigo from "@material-ui/core/colors/indigo";
 const StyledBadge = withStyles((theme: Theme) =>
   createStyles({
     badge: {
@@ -50,7 +51,12 @@ const StyledAvatar = withStyles((theme: Theme) => {
 })(Avatar);
 
 const useStyles = makeStyles((theme: Theme) => {
-  return createStyles({});
+  return createStyles({
+    container: {
+      backgroundColor: Indigo[400],
+      boxShadow: `0 2px 2px 2px ${Indigo[200]}`
+    }
+  });
 });
 
 interface UserDisplayProps {
@@ -62,7 +68,7 @@ export const UserDisplay: React.FC<UserDisplayProps> = (props) => {
   const styles = useStyles();
 
   return (
-    <div>
+    <div className={styles.container}>
       <StyledBadge
         overlap="circle"
         anchorOrigin={{
