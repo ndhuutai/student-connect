@@ -81,6 +81,7 @@ export const UserDisplay: React.FC<UserDisplayProps> = (props) => {
           {props.name.charAt(0)}
         </StyledAvatar>
       </StyledBadge>
+        {props.name}
     </div>
   );
 };
