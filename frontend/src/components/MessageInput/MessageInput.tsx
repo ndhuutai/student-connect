@@ -49,7 +49,7 @@ export const MessageInput: React.FC<IMessageInput> = (props) => {
       'messageToRoom',
       conversationState.room,
       trimmedMsg,
-      connection.userName, //TODO: Decide whether to send the user along with the message or let the server find the user and send it for us
+      connection.userId, //TODO: Decide whether to send the user along with the message or let the server find the user and send it for us
       () => {
         conversationDispatch(
           addMessage({
