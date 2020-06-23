@@ -11,6 +11,11 @@ export interface ISetUserName {
   userName: string;
 }
 
+export interface ISetUserId {
+  type: 'setUserId';
+  userId: string;
+}
+
 export interface IJoinRoom {
   type: 'joinRoom';
   room: string;
@@ -18,4 +23,8 @@ export interface IJoinRoom {
   socket: SocketIOClient.Socket;
 }
 
-export type ConnectionAction = ISetSocket | IJoinRoom | ISetUserName;
+export type ConnectionAction =
+  | ISetSocket
+  | IJoinRoom
+  | ISetUserName
+  | ISetUserId;
