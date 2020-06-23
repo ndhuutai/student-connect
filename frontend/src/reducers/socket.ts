@@ -3,11 +3,13 @@ import { ConnectionAction } from '../actionTypes/socket';
 export interface IConnection {
   socket: SocketIOClient.Socket | null;
   userName: string;
+  userId: string;
 }
 
 export const defaultState: IConnection = {
   socket: null,
   userName: '',
+  userId: '',
 };
 
 export default (
@@ -21,10 +23,14 @@ export default (
         socket: actions.socket,
       };
     case 'setUserName':
-      console.log('user name in actions here', actions.userName);
       return {
         ...state,
         userName: actions.userName,
+      };
+    case 'setUserId':
+      return {
+        ...state,
+        userId: actions.userId,
       };
     default:
       return state;
