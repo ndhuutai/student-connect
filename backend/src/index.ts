@@ -164,8 +164,33 @@ io.on('connection', (client: Socket) => {
   client.on(
     'messageToRoom',
     (roomName: string, message: string, user: string, confirmCB: Function) => {
-      console.log('user sent to server', user);
       client.to(roomName).emit('messageFromRoom', client.id, message, user);
+      //save the message to the database before calling the call back
+      Room.findById(roomName)
+        .exec()
+        .then((room) => {
+          if (room) {
+            const currentMessageHistory = room.toObject().messageHistory;
+            currentMessageHistory.push({
+              text: message,
+              user: user,
+            });
+            room
+              .update({
+                messageHistory: currentMessageHistory,
+              })
+              .exec()
+              .then((result) => {
+                console.log('update result', result);
+              })
+              .catch((e) => {
+                console.log(e);
+              });
+          }
+        })
+        .catch((e) => {
+          console.log('error saving data');
+        });
       confirmCB();
     }
   );
@@ -177,6 +202,15 @@ io.on('connection', (client: Socket) => {
         'announcement',
         `Welcome  ,${client.id}. Please wait for a staff to connect with you.`
       );
+
+      Room.findOne({ alias: roomData })
+        .exec()
+        .then((room) => {
+          console.log(room);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
 
       client.to(roomData).emit('newUserJoined', `${client.id} has connected!!`);
     });
