@@ -10,7 +10,7 @@ import {
 import axios from 'axios';
 
 import { connection as ConnectionContext } from '../../contexts/socket';
-import { setUser } from '../../actions/socket';
+import { setUserName, setUserId } from '../../actions/socket';
 
 const useStyles = makeStyles((theme: Theme) => {
   return createStyles({
@@ -71,7 +71,9 @@ export const Login: React.FC<Props> = (props) => {
       .then((result) => {
         console.log('result.data', result.data);
         console.log('connection in here', connectionContext);
-        connectionContext?.dispatch(setUser(result.data.alias)); //FIXME: issue setting username
+        //TODO: use type guards in stead of null-coallescing operator?
+        connectionContext?.dispatch(setUserName(result.data.alias));
+        connectionContext?.dispatch(setUserId(result.data._id));
         props.onLogInSucess(result.data);
       })
       .catch((e) => {
@@ -89,7 +91,7 @@ export const Login: React.FC<Props> = (props) => {
             className={classes.textField}
           />
           <TextField
-            type='password'
+            type="password"
             label={'Password'}
             onChange={handlePasswordChange}
             className={classes.textField}
