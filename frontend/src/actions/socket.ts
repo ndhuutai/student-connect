@@ -13,11 +13,18 @@ export const setSocket = (
   socket: setEventHanlders(socket, convoDispatch),
 });
 
-export const setUser = (user: string): ConnectionAction => {
-  console.log('user in setUser', user);
+export const setUserName = (userName: string): ConnectionAction => {
+  console.log('user in setUser', userName);
   return {
     type: 'setUserName',
-    userName: user,
+    userName,
+  };
+};
+
+export const setUserId = (userId: string): ConnectionAction => {
+  return {
+    type: 'setUserId',
+    userId,
   };
 };
 
