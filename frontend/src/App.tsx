@@ -50,7 +50,8 @@ export const App: React.FC<{}> = () => {
               value={{
                 dispatch: connectionDispatch,
                 socket: connection.socket,
-                userName: connection.userName, //TODO: Revisit this to remember that the issue was because the reducer did update but the state of 'username' is hardcoded
+                userName: connection.userName,
+                userId: connection.userId, //TODO: Revisit this to remember that the issue was because the reducer did update but the state of 'username' is hardcoded
               }}
             >
               {isLoggedin ? (
