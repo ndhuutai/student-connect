@@ -24,7 +24,7 @@
     "rimraf": "^3.0.2",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.3",
-    "webpack": "^4.43.0"
+    "webpack": "^5.75.0"
   },
   "dependencies": {
     "express": "^4.17.1",
